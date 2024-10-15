@@ -1,0 +1,6 @@
+setUp() called before each test
+tearDown() called after each test
+
+setupBeforeClass
+tearDownAfterClass
+Usefull for class connections etc

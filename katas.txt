@@ -1,0 +1,3 @@
+https://codingdojo.org/kata/
+https://kata-log.rocks/tdd
+https://www.codewars.com/
