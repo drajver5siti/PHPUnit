@@ -54,36 +54,7 @@ jobs:
               id: changelog_step
               uses: mikepenz/release-changelog-builder-action@v5
               with:
-                # configuration: "../configuration.json"
-                configurationJson: |
-                    {
-                        "categories": [
-                            {
-                                "title": "## 🚀 Features",
-                                "labels": ["feature:release", "feat"]
-                            },
-                            {
-                                "title": "## 🐛 Bug-fixes for customer reported bugs",
-                                "labels": ["bugfix:customer-reported", "bugfix:cr"]
-                            },
-                            {
-                                "title": "## 🐛 Other bug-fixes",
-                                "labels": ["bugfix:internally-reported", "bugfix:ir"]
-                            },
-                            {
-                                "title": "Improvements",
-                                "labels": ["improvement"]
-                            },
-                            {
-                                "title": "Documentation",
-                                "labels": ["doc"]
-                            },
-                            {
-                                "title": "Other",
-                                "labels": ["*"]
-                            }
-                        ]
-                    }
+                configuration: "./release-configuration.json"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               
