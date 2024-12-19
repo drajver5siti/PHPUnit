@@ -1,0 +1,30 @@
+# .github/release.yml
+
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+    authors:
+      - octocat
+  categories:
+    - title: Feature Releases
+      labels:
+        - feature:release
+        - feat
+    - title: Bug-fixes for customer reported bugs
+      labels:
+        - bugfix:customer-reported
+        - bugfix:cr
+    - title: Other bug-fixes
+      labels:
+        - bugfix:internally-reported
+        - bugfix:ir
+    - title: Improvements
+      labels:
+        - improvement
+    - title: Documentation
+      labels:
+        - doc
+    - title: Other
+      labels:
+        - '*'
