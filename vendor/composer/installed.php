@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '5078dede38fc215f0a7afaf5908154a3620a4ba3',
         'name' => 'ivan/php-unit',
         'dev' => true,
     ),
@@ -32,12 +32,12 @@
             'dev_requirement' => true,
         ),
         'ivan/php-unit' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '5078dede38fc215f0a7afaf5908154a3620a4ba3',
             'dev_requirement' => false,
         ),
         'kodova/hamcrest-php' => array(
@@ -89,6 +89,15 @@
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
             'reference' => '4f7fd7836c6f332bb2933569e566a0d6c4cbed74',
+            'dev_requirement' => true,
+        ),
+        'phpstan/phpstan' => array(
+            'pretty_version' => '2.0.4',
+            'version' => '2.0.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpstan/phpstan',
+            'aliases' => array(),
+            'reference' => '50d276fc3bf1430ec315f2f109bbde2769821524',
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(

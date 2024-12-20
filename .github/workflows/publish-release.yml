@@ -11,7 +11,7 @@ on:
 
 jobs:
     run_tests:
-        name: Run Tests
+        name: Run PHPStan and PHPUnit
         runs-on: ubuntu-latest
 
         steps:
@@ -24,9 +24,14 @@ jobs:
                 php-version: '8.2'
 
             - name: Install dependencies
-              run: composer install --no-interaction --prefer-dist
+              run: composer install --no-interaction --prefer-dist --dev
             
-            - name: Run tests
+            - name: Run PHPStan
+              run: |
+                export TERM=xterm
+                composer analyze
+            
+            - name: Run PHPUnit
               run: |
                 export TERM=xterm
                 composer test
