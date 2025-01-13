@@ -146,11 +146,6 @@ final class ResultPrinter
         }
     }
 
-    public function flush(): void
-    {
-        $this->printer->flush();
-    }
-
     private function printPhpunitErrors(TestResult $result): void
     {
         if (!$result->hasTestTriggeredPhpunitErrorEvents()) {
@@ -355,8 +350,8 @@ final class ResultPrinter
     }
 
     /**
-     * @param non-empty-string $type
-     * @param list<Issue>      $issues
+     * @psalm-param non-empty-string $type
+     * @psalm-param list<Issue> $issues
      */
     private function printIssueList(string $type, array $issues): void
     {
@@ -460,7 +455,7 @@ final class ResultPrinter
     }
 
     /**
-     * @param list<array{title: string, body: string}> $elements
+     * @psalm-param list<array{title: string, body: string}> $elements
      */
     private function printList(array $elements): void
     {
@@ -524,9 +519,9 @@ final class ResultPrinter
     }
 
     /**
-     * @param array<string,list<ConsideredRisky|DeprecationTriggered|ErrorTriggered|NoticeTriggered|PhpDeprecationTriggered|PhpNoticeTriggered|PhpunitDeprecationTriggered|PhpunitErrorTriggered|PhpunitWarningTriggered|PhpWarningTriggered|WarningTriggered>> $events
+     * @psalm-param array<string,list<ConsideredRisky|DeprecationTriggered|PhpDeprecationTriggered|PhpunitDeprecationTriggered|ErrorTriggered|NoticeTriggered|PhpNoticeTriggered|WarningTriggered|PhpWarningTriggered|PhpunitErrorTriggered|PhpunitWarningTriggered>> $events
      *
-     * @return array{numberOfTestsWithIssues: int, numberOfIssues: int, elements: list<array{title: string, body: string}>}
+     * @psalm-return array{numberOfTestsWithIssues: int, numberOfIssues: int, elements: list<array{title: string, body: string}>}
      */
     private function mapTestsWithIssuesEventsToElements(array $events): array
     {

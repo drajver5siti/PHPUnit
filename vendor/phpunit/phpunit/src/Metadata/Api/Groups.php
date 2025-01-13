@@ -33,15 +33,15 @@ use PHPUnit\Metadata\UsesFunction;
 final class Groups
 {
     /**
-     * @var array<string, list<non-empty-string>>
+     * @var array<string, array<int, string>>
      */
     private static array $groupCache = [];
 
     /**
-     * @param class-string     $className
-     * @param non-empty-string $methodName
+     * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      *
-     * @return list<non-empty-string>
+     * @psalm-return array<int, string>
      */
     public function groups(string $className, string $methodName, bool $includeVirtual = true): array
     {
@@ -59,13 +59,16 @@ final class Groups
             $groups[] = $group->groupName();
         }
 
+        if ($groups === []) {
+            $groups[] = 'default';
+        }
+
         if (!$includeVirtual) {
             return self::$groupCache[$key] = array_unique($groups);
         }
 
         foreach (Registry::parser()->forClassAndMethod($className, $methodName) as $metadata) {
             if ($metadata->isCoversClass() || $metadata->isCoversFunction()) {
-                /** @phpstan-ignore booleanOr.alwaysTrue */
                 assert($metadata instanceof CoversClass || $metadata instanceof CoversFunction);
 
                 $groups[] = '__phpunit_covers_' . $this->canonicalizeName($metadata->asStringForCodeUnitMapper());
@@ -82,7 +85,6 @@ final class Groups
             }
 
             if ($metadata->isUsesClass() || $metadata->isUsesFunction()) {
-                /** @phpstan-ignore booleanOr.alwaysTrue */
                 assert($metadata instanceof UsesClass || $metadata instanceof UsesFunction);
 
                 $groups[] = '__phpunit_uses_' . $this->canonicalizeName($metadata->asStringForCodeUnitMapper());
@@ -101,8 +103,8 @@ final class Groups
     }
 
     /**
-     * @param class-string     $className
-     * @param non-empty-string $methodName
+     * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      */
     public function size(string $className, string $methodName): TestSize
     {
