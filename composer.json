@@ -21,7 +21,7 @@
         "phpstan/phpstan": "^2.0"
     },
     "scripts": {
-        "analyze": "clear && vendor/bin/phpstan",
+        "analyze": "vendor/bin/phpstan",
         "test": "vendor/bin/phpunit ./src/tests/* --color --display-warning"
     }
 }

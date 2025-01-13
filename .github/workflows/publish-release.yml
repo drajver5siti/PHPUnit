@@ -27,13 +27,10 @@ jobs:
               run: composer install --no-interaction --prefer-dist --dev
             
             - name: Run PHPStan
-              run: |
-                export TERM=xterm
-                composer analyze
+              run: composer analyze
             
             - name: Run PHPUnit
-              run: |
-                composer test
+              run: composer test
 
     publish_release:
         name: Publish Release
