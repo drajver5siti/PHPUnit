@@ -33,7 +33,6 @@ jobs:
             
             - name: Run PHPUnit
               run: |
-                export TERM=xterm
                 composer test
 
     publish_release:
