@@ -22,6 +22,6 @@
     },
     "scripts": {
         "analyze": "clear && vendor/bin/phpstan",
-        "test": "clear && vendor/bin/phpunit ./src/tests/* --color --display-warning"
+        "test": "vendor/bin/phpunit ./src/tests/* --color --display-warning"
     }
 }
